@@ -1,0 +1,58 @@
+def getbids(names, bid):
+
+#Collects order information - name, bid in a loop
+    while True:
+        try:
+            reservedprice=float(input("What is the reserve price?"))
+        except ValueError:
+            print ("Please enter an appropriate number for the reserved price.")
+        else:
+            break
+
+    print("${:.2f}".format(reservedprice))
+    print("Auction has started.")
+    name = ""
+    highestbid=0
+    print("Highestbid so far is ${:.2f}".format(highestbid))
+    while name.upper() != 'F':
+        name = input("What is your name? (type \"F\" to finish)")
+        if name.upper()!= "F":
+            names.append(name.title())
+            print(name.title())
+
+            while True:
+                try:
+                    bid=float(input("What is your bid?"))
+                    if bid<=highestbid:
+                        print("Sorry",name.title(),"You'll need to make another,higher, bid.")
+                    else:
+                        break
+                except ValueError:
+                    print ("Sorry",name.title(),"You'll need to make another,higher, bid.")
+            else:
+                break
+
+            if bid>highestbid:
+                        highestbid=bid
+                        highestname=name
+                        print("Highest bid so far is ${:.2f}".format(highestbid))
+                        bids.append(bid)
+
+        elif highestbid>=reservedprice:
+            print(name)
+            print("Auction won by",highestname.title() ,"with a bid of ${:.2f}".format(highestbid))
+        else:
+            print("Auction did not meet reserve price.")
+
+def showbids(names, bids):
+#calculates price for each egg order, and displays order information - name, number of eggs, price
+
+    for i in range(len(names)):
+        print("{} bid ${:.2f}".format(names[i], bids[i]))
+
+
+#main routine
+names = []
+bids = []
+getbids(names, bids)
+showbids(names, bids)
