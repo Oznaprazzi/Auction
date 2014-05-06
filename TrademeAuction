@@ -1,3 +1,15 @@
+#-------------------------------------------------------------------------------
+# Name:        Auction
+# Purpose:     Allow bidders to bid for an item. The highest bidder wins
+#
+# Author:      huangc
+#
+# Created:     08/04/2014
+# Copyright:   (c) huangc 2014
+# Licence:     CCL
+#-------------------------------------------------------------------------------
+#!/usr/bin/env python
+
 def getbids(names, bid):
 
 #Collects order information - name, bid in a loop
